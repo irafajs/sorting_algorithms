@@ -29,17 +29,19 @@ int l_part(int *array, int low, int high, size_t size)
 	int i = low - 1;
 	int j;
 
+	if (array == NULL || size == 0)
+	{
+		return (-1);
+	}
 	for (j = low; j < high; j++)
 	{
 		if (array[j] < p)
 		{
 			i++;
 			swap(&array[i], &array[j]);
-			print_array(array, size);
 		}
 	}
 	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
 	return (i + 1);
 }
 
@@ -61,10 +63,14 @@ void quick_s_h(int *array, int low, int high, size_t size)
 		quick_s_h(array, low, p_index - 1, size);
 		quick_s_h(array, p_index + 1, high, size);
 	}
+	else
+	{
+		print_array(array, size);
+	}
 }
 
 /**
- * quick_sort: sort the arrays using quick sort
+ * quick_sort - sort the arrays using quick sort
  * @array: list of arrays to be sorted
  * @size: list of the list of arrays
  *
