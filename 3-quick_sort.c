@@ -35,7 +35,7 @@ int l_part(int *array, int low, int high, size_t size)
 	}
 	for (j = low; j < high; j++)
 	{
-		if (array[j] < p)
+		if (array[j] <= p)
 		{
 			i++;
 			swap(&array[i], &array[j]);
